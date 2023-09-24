@@ -1,70 +1,104 @@
-/* 基本樣式設定 */
+/* 基本樣式 */
 body {
+    background-color: white;
+    color: black;
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #fff; /* 背景色改為白色 */
-    color: #333; /* 文字顏色改為深灰色 */
 }
 
-/* 新的NAV樣式 */
-nav {
-    background-color: #fff; /* 背景色改為白色 */
-    color: #333; /* 文字顏色改為深灰色 */
+header {
+    font-size: 16px;
     text-align: center;
-    padding: 10px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    border-radius: 10px; /* 圓角 */
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* 陰影效果 */
+    padding: 20px;
+}
+
+nav {
+    background-color: white;
+    text-align: center;
+    padding: none;
 }
 
 nav ul {
-    list-style-type: none;
+    list-style: none;
     padding: 0;
 }
 
+/* 修改分類按鈕樣式 */
 nav ul li {
     display: inline;
     margin-right: 20px;
 }
 
 nav ul li a {
-    text-decoration: none;
-    font-weight: bold;
+    text-decoration: none; /* 去除底線 */
+    color: black; /* 黑色文字 */
+    transition: color 0.3s; /* 平滑過渡顏色變化 */
+    font-size: 24px;
 }
 
-/* 漢堡選單樣式 */
-#nav-toggle {
-    display: none;
+/* 鼠標懸停時的樣式 */
+nav ul li a:hover {
+    color: gray; /* 灰色文字 */
 }
 
-#nav-icon {
-    display: none;
-    cursor: pointer;
+
+.section {
+    margin-bottom: 30px;
+    text-align: left;
+    display: inline-block; /* 讓分頁內容置中時保持在一行 */
+    max-width: 1000px;
 }
 
-.bar {
-    width: 25px;
-    height: 3px;
-    background-color: #333;
-    margin: 4px 0;
-    transition: 0.4s;
+.section-title {
+    font-size: 30px; /* 將標題文字大小設置為18像素 */
+    text-align: left; /* 避免分頁內容文字置中 */
+    max-width: 1000px;
 }
 
-#nav-toggle:checked + #nav-icon .bar:nth-child(1) {
-    transform: rotate(-45deg) translate(-5px, 6px);
+.section-image {
+    max-width: none; /* 清除最大寬度限制，以便圖片可以根據高度自動調整寬度 */
+    height: 140px; /* 設置圖片的高度為60像素 */
+    width: auto; /* 寬度自動調整，以保持圖片的原始比例 */
 }
 
-#nav-toggle:checked + #nav-icon .bar:nth-child(2) {
-    opacity: 0;
+footer {
+    background-color: white;
+    text-align: center;
+    padding: auto;
 }
 
-#nav-toggle:checked + #nav-icon .bar:nth-child(3) {
-    transform: rotate(45deg) translate(-5px, -6px);
+footer img {
+    height: 30px;
+    margin-right: 10px;
 }
 
-/* 其他樣式規則 */
+/* 響應式設計 - 螢幕寬度小於768px時 */
+@media screen and (max-width: 768px) {
+
+    nav ul {
+        text-align: center; /* 將按鈕置中 */
+    }
+
+    nav ul li {
+        display: inline-block; /* 使按鈕橫向顯示在同一行 */
+        margin: 8px; /* 設置按鈕間距為10px */
+    }
+
+    nav ul li a {
+        font-size: 16px;
+    }
+
+    .content {
+        text-align: center; /* 將分頁內容置中 */
+    }
+
+    .section {
+        margin-bottom: auto;
+    }
+
+    .section-image {
+        max-width: 100%;
+        height: auto;
+    }
+}
